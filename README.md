@@ -46,10 +46,42 @@ Copy the public key with .pub extension to authorized_keys and save the file
 
 chmod 700 .ssh
 chmod 644 .ssh/authorized_keys
+
 700 will give read write and execute permission to user.
 644 prevent other user from writting in to file. Then restart ssh server
 service ssh restart
 Now from your log in to grader with private key generated
+# ssh key
+# id_rsa key:
+
+-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAoH0U98qRouLgQ3XhHuhvIqTn9VN6v6/iFCnqws9c/qQE0e5n
+Wmoz04fCllnHHGI8PxmseFnt1DtX1QD7m4mrcGEvtsQLFKcYuC17BNB7BFuN7EfX
+6ZgHyiPFaX/N3t5nVJlN9EtKVvNLnMvkhLzWsM/kJ3FeUpYHYXDxVuvZieQ2nVtl
+l29pGs6qcN5oeKk7xhz9DNFScVeZtC8/L5dSlgy4FTq0AtPCloJmBo2FmUB8dnwn
+y0M6ifarr8jqpjJf1VLm3yR03ws/jdJ7OvB9dWF+lXflnGqcitsCluZDa4PEHnno
+XeS+OIiPWPubXcbjnuvU6jBl+mnzI/OkSqeEKwIDAQABAoIBAFWnrKM7yFLpR8x5
+g7ddUsNoxCxZa7AXDVC5toRW7Ekz/SaWWS8Wc6a4VJCuRejOPV1oNHbfeGHHcm9K
+4P74kTmfhTnElC1nqXfTPk8pfh6rRqoPBhu0eqPWR6yw+42xofCzCboS3RBfNcHv
+yH1X1DX2Hs02YqMtU68b+pLrueUvweCuaKxE3JM/rRngrkozKuAGXp9sgI1EJaVf
+iBnnY7Fy3gh6xR4ibs7rt2edZrj0rdfKKiD6g8roZG5kUcrZKmp5uhSEawGGve2w
+rPqoS5OWgiiL/FT0lwJfKabr2t+WxWxAkWD4MtLcKdqzrcycshtcB3nEm8b3skSK
+i1Wgj/ECgYEAy1JgRSVacYCnwyKBVAwgY46dHHfqxcPmodCK0kINFbjkBj1EkD9O
+jpyCYg4f8vU9OB2kQkBqLs6KWSkHSq1ujpmhCCensvrrBUw8GIX8CHK25zqbse8B
+Wpo1clLy8jnV7yMrQfyf9URC1VqM1N4evqixVANWkcZlomPBYT3VkU8CgYEAyhG7
+BJ1AiaR0gqy4Y5Qeeop8kHw6StpnRXzRZYZ6qoYiIEpVzO0FjgSqysGaiZ8GkbvH
+rbhd2UPrRBZ6qNzqtxt9m+w8++4nlGg2TF/e8BXt1smMyRfG8IhHNVIBnqlFsQJZ
+Gp80RmvikKaFjE+26JwhzbFoY7cLHOqrUTQb0GUCgYArXYR++vqRXtlpO0DORk/a
+LB7CZalDSQc12B7jvYbA7VBlLEglY/tDW4pLk6uozDmkcF4Ka2a6WP8VCTUu7lK4
+Q3gfHyYbfH0IAjyHFnys6JquMsfmaY2mX2Gq4ppCo6dHe/7L8i/Dxi1jCA8lj8KK
+87vuqU+bg+9FdXVXYjLc7QKBgQCS+7i0z4ndVTGmx+pMDLbq3gdjtelU/271Pai3
+F83scisqn8evi41p031EhPVbO8C0iwnhFGW3n07ntQ49/IwC600/+OQXQRGrQu6U
+OXxZ2Smq/eqZb+E2n3pkj6U7+tcFvbaAxeNpghpIq8gi2u0qYD+6dlx/g+rietRo
++eVtfQKBgBfRl2TUB6ivhinngUShR2UcM3v8+qFOMEBUI9PWpvwKcN7g4s4rr9yl
+T3k+WM7yjQP5Ifs51bNLMH0Fej0DHvEFnN0dacsP/8FREusOxyt1qRKZ5yhUKbI9
+x2thal1vgR6/etJsX9RVPjAI+i69cFcRieGLBDslZt69/O5GCscl
+-----END RSA PRIVATE KEY-----
+
 
 ssh -i .ssh/id_rsa grader@13.127.33.29
 Changing the ssh port to 2200
@@ -61,10 +93,10 @@ Restart the ssh server
 service ssh restart
 Note: Before Logging using ssh add custom TCP port 2200 under lightsaail firewall in networking tab in lightsail instance console
 
-Now Login using command like this
+# Now Login using command like this
 
 ssh -i .ssh/id_rsa -p 2200 grader@13.127.33.29
-Disabling ssh login as root
+# Disabling ssh login as root
 sudo nano /etc/ssh/sshd_config
 
 make change PermitRootLogin no
@@ -106,7 +138,7 @@ sudo apt-get install git
 
 move to the FlaskApp cd FlaskApp
 
-In that direcory clone your github repository
+# In that direcory clone your github repository
 
 sudo git clone https://github.com/paru1234/catalog.git
 
@@ -199,15 +231,15 @@ You can either install all modules on your machine or create a virtual environme
 # Setting up your Google Oauth2
 Login to your developer console and select your project and edit OAuth details as following
 
-Javascript origin http://ip.xip.io
+Javascript origin http://13.127.33.29.xip.io
 
 redirect URI
 
-http://ip.xip.io\login
+http://13.127.33.29.xip.io\login
 
-http://ip.xip.io\gconnect
+http://13.127.33.29.xip.io\gconnect
 
-http://ip.xip.io\callback
+http://13.127.33.29.xip.io\callback
 
 xip.io is a free DNS which will be the same as using IP address
 
